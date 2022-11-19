@@ -1,0 +1,265 @@
+
+** Exception handling is a mechanism of converting
+ system defined error messages into user friendly messages.
+ normal termination,user friendly
+
+try catch finally throw throws
+
+
+Errors are of two types. 
+They are 
+
+1)compile time errors  		  
+2)run time errors (exceptions)
+
+System.out.println();
+
+
+
+** Compile time errors are those which are occurring because of poor understanding of the language.
+
+
+** Run time errors are those which are occurring in a program when the user inputs invalid data.
+
+The run time errors must be always converted by the JAVA programmer into user friendly messages by 
+
+using the concept of exceptional handling.
+
+
+Types of Exceptions
+===================
+We have 3 types of exceptions
+
+1. Checked Exception
+2. Unchecked Exception				Object   java API
+3. Error
+
+							Throwable
+
+					1)pre defined 											2)user defined
+
+		1)asynchronous      		 2)synchronous
+		java.lang.Error
+		deals with hardware 			deals with program run time errors
+		and external problems				java.lang.Exception     java.lang.RunTimeException
+												1)checked			    	  2)unchecked
+		*BootStrapMethodError						(hard disk)						(main memory)
+		*InternalAccessError
+		*InternalError		
+		*SecurityException																*ArthimeticException
+		*OutofMemeoryError							*FileNotFoundException		    	*NullPointerException
+		*StackOverflowError							*ClassNotFoundException 			*ClassCasteException
+		*UnknownError								*IllegalAccessException				*IndexOutOfBoundsException
+		*VirtualMachineError						*UnsupportedOperationException		*ArrayIndexOutOfBoundsException
+													*InterrpuedException		        *StringIndexOutOfBoundsException
+																						*IlligalArgumentException
+																						*NumberFormatException
+		
+	
+	
+	
+	
+	
+	
+	
+	try
+	{
+	
+	//error code   //arith
+	
+	}
+	catch(Exception ex)
+	{
+	//handling code("user frindly message")
+	}
+	finally
+	{
+	//closing the connections or files...
+	}
+	
+	throw
+	throws
+
+	
+	
+	Advantages:
+	-----------
+	
+	1)we can provide usee friendly error msgs
+	
+	2)normal termination
+	
+	
+	
+	
+	class A
+	{
+	//10000
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Exception handling:
+	-------------------
+	1)
+	try
+	{
+	//connection
+	int a=10;
+	int b=0;
+	int c=a/b;
+	//1000
+	}catch(Exception e)
+	{
+	
+	}
+	finally
+	{
+	//close connection
+	}
+	
+	
+	throws
+	
+	throw
+	
+	
+	
+	class A{
+	
+	//1000 lines of code
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	No. 			throw 										   					      	throws 
+	
+	1) Java throw keyword is used to explicitly throw an exception.        Java throws keyword is used to declare an exception. 
+	2) Checked exception cannot be propagated using throw only.            Checked exception can be propagated with throws. 
+	3) Throw is followed by an instance.(new) 								 	Throws is followed by class. 
+	4) Throw is used within the method.                                    Throws is used with the method signature. 
+	5) You cannot throw multiple exceptions.                               You can declare multiple exceptions
+	
+	
+	
+	
+	TRY CATCH FINALLY THROW Throws
+	===============================
+	try
+	{
+	1)connection related code
+	2)
+	//error code
+	}
+	catch()
+	{
+	//handling code
+	}
+	finally
+	{
+	//connection closing related code
+	}
+	
+	
+	throw throws
+	
+	
+	
+POSSIBLE COMBINATIONS:
+--------- -------------
+
+try
+{
+int a=10/0;
+}
+catch(Exception e){
+sop("2");
+}
+catch(ArthimeticException ae){
+sop("1");
+}
+catch(ArrayIndexOutOfBoundsException e){
+sop("3");
+}
+
+
+finally
+{
+
+}
+
+	
+	
+	String name="BVRIT";
+	String name1=new String("BVRIT");
+	
+	sop(name.equals(name1));//true
+	sop(name==name1);//false
+	
+	StringBuffer name2=new StringBuffer("BVRIT");
+	StringBuffer name3=new StringBuffer("BVRIT");
+	
+	sop(name2.equals(name3));//false
+	sop(name2==name3);//false
+	
+	
+	
+	
+	
+	
+	
+	
+	class InvalidCredentials extends Throwable/Exception/RunTimeException
+	
+	param-constrcutor
+	
+	
+	
+	throw and throws
+	
+	
+	throw throws 
+	
+	
+	ArithematicException 
+
+		a+b>100
+
+
+
+throw new ArithematicException("addition is wrong/.............")
+
+	
+	user defined  empidnotfoundexception agevali.....
+	
+	class EmpIdNotFoundException extends Exception
+	{
+	
+	
+	EmpIdNotFoundException(String message)
+	{
+	
+	
+	
+	}
+	
+	
+	
+	}
+	
+	
+	

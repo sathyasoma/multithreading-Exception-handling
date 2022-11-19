@@ -1,0 +1,456 @@
+Exception Handling:
+====================
+For example, gmail account, we need emaid and passwrd
+    if we entered correct account will be opened succusfuly
+	  if enterd wrong email or passwrd it shows error message "please enter valid email or passwrd"
+* that messege is genereted with execption,and it is user understandable language.
+created by the proggramer
+     if we are not using exceptions system will be generated some message like"ORAQW12QSH". 
+user unable to understand system generated messages.
+        
+ex:
+
+public class ExceptionEx{
+ public static void main(String args[]){
+        
+		 Scanner sc= new Scanner(System.in);
+		 
+		 System.out.println("Enter first number");
+		 int fnum=sc.nextInt();
+         System.out.println("Enter second  number");
+		 int senum=sc.nextInt();
+		 
+		 int div=fnum/senum;
+		 System.out.println(div);
+		 System.out.println("remaining 2000 lines of code");
+ }
+}
+	
+	
+	
+	o/p:::
+	      
+		   exeception occure in 30 line but we didnot mension any exceptions, it will throew error
+there only stop the execution , remianing lines of code also not executed, is called abnormal 
+termination
+		
+
+
+Without exception Handling:
+       2.system defined messages()
+       1.abnormal termination (wherever problem occur adn the same line it will stop the execution)
+	  
+	
+	
+Exception handling is a mechanisam of converting system error messages into user friendly messages.
+    2. user friendly
+    1. normal termination
+*try, catch,finally, throw,throws
+
+Before going to discuss these keywords we can discuss errors and exceptions.
+
+Errors are two types.
+ They are
+ 1)compile time error
+ 2)Run time error(exceptions)
+ 
+ eg:System.out.println()    ===>(compile time error)
+ 
+ ** Compile time errors are occuring because of poor understanding of the language.
+ 
+ **Run time errors are those which are occuring in program when the user inputs invalid data
+
+=>the run time errors must be always converted by the java programmer into user friendly messages using
+ the concept of Exception Handling.
+
+Types of Exception:
+
+we have 3 types of exceptions
+
+1)checked exceptions
+2)unchecked exceptions
+3)Errors
+
+                                           Object java API
+                            
+                                Throwable
+    
+                  1)Pre defined                                 2)User defined
+
+1)Asynchronous               2)synchronous
+
+java.lang.Error               deals with program run time 
+deals with the hardware        java.lang.Exception               java.lang.RuntimeException
+and external problems	         1) checked                           2)Unchecked
+                                      (hard disk)                           (main memory)
+*BootStrapMethodError
+*InternalAcessError             *FilenotFoundException             *ArithematicException
+*SecurityExceptionError         *ClassNotFoundException            *NullPointerException
+*OutOfMemoryError               *IlligalAcessesException           *ClassCasteException
+*StackoverflowError             *UnsupportedOperationException     *IndexOutOfBoundException
+*UnknownError                   *InterruptedException               *ArrayIndexOutOfBoundException
+*VirtualMachienError                                               *StringIndexOutOfBoundException
+			                                              *IlligalArgumentException
+			                                            *NumberFormatException
+																	
+																	
+																	
+																	
+						try
+                          {
+						//error code
+						}			
+                        catch(exception e)
+                                                  {
+						 //error handlig code
+						 }					
+                         finally
+                                                 {
+						  //closing the connections or files
+						  }		
+
+
+throw eg:
+--------
+
+class ThrowEx{
+
+     public int pass(int marks){
+	     
+		  if(marks<35) 
+		    throw new ArithmaticException("you are failed");
+	 }else
+	 {
+	    Syso("you are passed :" +marks);
+	 }
+    pubic static void maon(String args[]){
+	
+	         ThrowEx m= new ThrowEx();
+			 m.pass(33);
+	
+	} 
+
+}
+
+
+
+how to create user defined exceptions:
+--------------------------------------
+ take your class and your class must be extends to any other parent exception
+
+1.IdNotFoundException extends RuntimeException/Exception
+
+2. your class need to take param constructor
+
+
+eg:
+
+class MyException extends Exception{
+
+    private int age;
+	
+	public MyException(int age){
+	   this.age= age;
+	}
+	
+	public String totring(){
+	   return "you are not eligeble for vote:"+age;
+	}
+}
+public class Exception6{
+
+     static void validation(int age) throws MyException{
+	      if(age<18)
+		           throw new MyException(age);
+				else
+				Syso("you are eligeble for vote");
+	 }
+	 
+	 public static void main(String args[]) throws MyException{
+	 
+	   Exception6.validation(16);
+	   Syso("rest of the code");
+	          
+	 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Throw keyword:
+=============
+  some times we can create exception object explicitly we can handover to the jvm manually, 
+ for this we have to use"throw " key word.
+      throw new Arithmetic Exception ("/ by Zero")
+  =>throw keyword handover exception object to the jvm manually.
+=>creation of ArithmaticException object Explicitly.
+
+=>Hence the main objective of throw keyword is to handover our created object to jvm manualy
+=>Hence the result of following two programms are exactly same.
+
+class Test
+{
+p s v main(){
+         sop)(10/0);
+}
+}
+
+* in this case main method is responsible to create exception object and
+ handover to the jvm.
+
+class Test
+{
+p s v main(){
+         throw new ArithmaticE("/ by ZERO");
+}
+}
+*In this case proggramer creating exception object explicitly and 
+handover to the jvm manually.
+
+*note: best use of throw keyword is for
+ user defined exception or customised exceptions.
+case1:
+------
+class Test
+{
+static AE e= new AE;
+p s v main(){
+         throw e;
+}
+}
+--->will get AE
+class Test
+{
+static AE e;
+p s v main(){
+         throw e;
+}
+}
+ =>throw e, if e refers null then we will get "NullpointerException".
+
+
+Case2:
+----
+class Test
+{
+
+p s v main(){
+         sop(10/0);
+         sop("hello")
+}
+}
+
+*Runtime error: AE: /by zero
+{
+
+p s v main(){
+         throw new AE("/by zero");
+         sop("hello")
+}
+}
+*AFter throw we are not allowed to write any staetemnt directly
+ other wise we will get "compile time error": Unreachable statement
+
+=====
+case3:
+class Test
+{
+
+p s v main(){
+        throw new Test();
+}
+}
+*CE: Test(): we can use throw kw only for thrwable types,if your trying to use for normal java objects
+we will get compile time error.saying incompatible types.
+
+=
+class Test extends RuntimeException
+{
+
+p s v main(){
+        throw new Test();
+}
+}
+
+RE:Exception in main thread test.
+
+THROWS:
+====================================
+
+class Test 
+{
+
+p s v main(){
+        printwriteer pw= new printwriter("abc.txt");
+             pw.println("hello");
+}
+}
+CE:In our proggram if there is a possiblilty of rising checked exeception then compulsory 
+we should handle checked ecception otherwise we will get compile time error saying; 
+UNREPOERTED EXCEPTION 
+XX MUST BE CAUGHT DECLARED TO BE THROWN
+
+2:
+==
+class Test 
+{
+
+p s v main(){
+       Thread.sleep(10000);
+}
+}
+CE: Unreported exception java.lang.IntruptedException must be caught or 
+declerd to be thrown.
+
+=> we can handle this compile time error by using following two ways
+    1)by using try catch
+class Test 
+{
+
+p s v main(){
+try{
+       Thread.sleep(10000);
+}catch(Interrupeted e){}
+}
+}
+    2) by using Throws:
+we can use throws kw to deligate responsibility of exception handling to the caller
+ (it may be another method or JVM) then caller method is responsible to handle that exception
+
+class Test 
+{
+
+p s v main() Throws InterrupedEx
+{
+       Thread.sleep(10000);
+
+}
+}
+=.throws kw required only for checked exptions nd usage
+ of thrwos kw for unchecked excpetion there is no use or impact
+= throws kw required only to convince compiler.
+==usage of throw kw doesnt prevntion abnormal of th prgrm
+
+==>*
+case1 :we can use throws kw for method and constructors but not classes.
+=====
+case2:we can use thwos only for throwable type if we are trying to use for normal 
+classes we will get compile time error saying INcompatable types
+ 
+
+case3:
+====
+class Test 
+{
+
+p s v main() Throws InterrupedEx
+{
+       Throw new exception();
+
+}
+}
+
+Ehandling kw summary:
+================
+try: to maintain risky code
+catch: to maintain exceptionhndling code
+finally: to maintain cleanup code
+throw:to handover our created exception object to the jvm manually
+throws: to deligate responsiblety of exception handling to the caller.
+
+
+try:
+====
+there is a chance of getting a error in this particular line 
+
+catch:
+=======
+for which exception code you handling that you have to write in the cacth block
+
+
+
+userfrndly mssgs:L
+====================
+by using try catch:
+=======================
+
+public class ExceptionEx{
+ public static void main(String args[]){
+        
+		 Scanner sc= new Scanner(System.in);
+		 
+		 System.out.println("Enter first number");
+		 int fnum=sc.nextInt();
+         System.out.println("Enter second  number");
+		 int senum=sc.nextInt();
+		 try{
+		 int div=fnum/senum;
+		 System.out.println(div);}
+		 catch(Exception ex){System.out.println("dont enter zero as denominator");}
+		 
+		 System.out.println("remaining 2000 lines of code");
+ }
+}
+
+ex:
+============
+
+class Exception2{
+public static void main(String rags[]){
+
+              try{
+                int a=10;
+				int b=2;
+				int c=a/b;
+               }
+            catch(ArithematicException ae){
+			 //Syso("dont enter zero as denominator");
+			 //Syso(ae);   //excpetion messaage will come,jvm creates object and exception store in object and prints
+			 ae.PrintStackTrace();//entire exception message
+			 //Syso(ae.getmassege());//only the reason we get
+			}
+
+         try{
+		  
+		  int a[]=new int[5]; // 0........4
+		  a[0]=10;
+		  a[5]=34;
+		 
+		 }catch(ArrayIndexOutOfBoundException ae){
+		    
+			Syso("array index max size 4");
+		 }
+		 Syso("remaining kines of code");
+
+
+}
+
+
+}
+
+
+
+						  

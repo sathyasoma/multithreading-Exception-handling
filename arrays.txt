@@ -1,0 +1,273 @@
+arrays
+```
+
+variables 
+
+to store the values
+
+  int a = 100;
+  int b = 300;
+  int c = 5656;
+  
+array is a group of elements of same type/homogenious
+
+  int a = 333,34343,"ram";//compile time error inavlid
+  
+ syntax:
+   
+      <datatype> <variablename>[]= new <datatype>[5];
+	  
+  
+eg:     int x[] = new int[3];
+
+
+while we are storing the values into an arrays based on index the values
+gets stored.
+
+array index starts from 0th positon
+
+                  x[0]=100;
+		  x[1]=400;
+		  x[2]=778;
+		  
+example:
+``
+package com.capgemini.jse.arrays;
+
+public class Test1 {
+	
+	
+ public static void main(String[] args) {
+	
+	 
+	 //array varible declaration
+	 
+	 int x[] = new int[3];
+	 
+	 //assigning the values
+	 
+	 x[0]=3434;
+	 x[1]=4545;
+	 x[2]=786;
+	 System.out.println(x[0]);
+	 System.out.println(x[1]);
+	 System.out.println(x[2]);
+	 
+}
+
+}
+
+
+array variable initialization:
+==============================
+package com.capgemini.jse.arrays;
+
+public class Test1 {
+	
+	
+ public static void main(String[] args) {
+	
+	 
+	 //array variable initialization
+	 
+	 int x[] = {100,3434,343};
+	 
+	 System.out.println(x[0]);
+	 System.out.println(x[1]);
+	 System.out.println(x[2]);
+	 
+}
+
+}
+
+using for loop accessing array elements:
+-----------------------------------
+package com.capgemini.jse.arrays;
+
+public class Test1 {
+	
+	
+ public static void main(String[] args) {
+	
+	 
+	 //array variable initialization
+	 
+	 int x[] = {100,3434,343};
+	 
+	 for(int i=0;i<3;i++)
+	 {
+		 System.out.println(x[i]);
+	 }
+	 
+}
+
+}
+
+
+using for each loop accessing array elements:
+===========================================
+package com.capgemini.jse.arrays;
+
+public class Test1 {
+	
+	
+ public static void main(String[] args) {
+	
+	 
+	 //array variable initialization
+	 
+	 int x[] = {100,3434,343};
+	 
+	 //enhanced for loop (for each loop)-jdk18
+	 
+	 for(int i:x)
+	 {
+		 System.out.println(i);
+	 }
+	 }
+	 
+}
+
+
+note:
+====
+it is highly recommended to access array elements using for each loop
+
+
+note:
+======
+we can apply for each loop either on array elements or collection 
+elements.
+
+length:
+======
+
+length is an implicit variable which is used to find out the
+no.of elements of an array.
+
+
+ System.out.println(x.length) ; // 3
+ 
+ 
+example to pass an array to the method:
+=======================================
+package com.capgemini.jse.arrays;
+
+public class Test2 {
+	
+	static void min(int arr[])
+	{
+		int min= arr[0];
+		for(int i=1;i<arr.length;i++)
+		
+			if(min>arr[i])
+				min=arr[i];
+		
+		System.out.println(min);
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		int a[]= {33,3,4,5};
+		
+		min(a);//passing array to a method
+		
+	}
+
+}
+
+
+multi dimensional array:
+========================
+=======================
+data is stored in row and column based index.
+
+ eg: int arr[][] =  new int[3][3];
+ eg: int arr[][]={{1,2,3},{2,4,5},{5,7,4}};
+
+
+example:
+```
+package com.capgemini.jse.arrays;
+
+public class Test3 {
+	
+	public static void main(String[] args) {
+		
+		int arr[][]={{1,2,3},{2,4,5},{5,7,4}};
+
+		for(int i=0;i<arr.length;i++) {
+			
+			for(int j=0;j<3;j++)
+			{
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+note:
+----
+for every array,since array is an object in java, for every array internally
+proxy class gets created if we wan to get follow the program
+
+package com.capgemini.jse.arrays;
+
+public class Test4 {
+	
+	public static void main(String[] args) {
+		
+		
+		int arr[]= {12,23,3};
+		
+		System.out.println(arr.getClass().getName());
+	}
+
+}
+
+
+array variable allows object types:
+`````
+example:
+```
+package com.capgemini.jse.arrays;
+
+
+class Employee
+{
+	int empid;
+	String empname;
+	public Employee(int empid,String empname)
+	{
+		this.empid=empid;
+		this.empname=empname;
+	}
+	
+	public String toString()
+	{
+		return empid + " " + empname;
+	}
+}
+public class Test5 {
+	
+	public static void main(String[] args) {
+		
+		Employee e1=  new Employee(100,"ram");
+		Employee e2 = new Employee(101,"rajarshi");
+		Employee e3 = new Employee(102,"kinjol");
+		
+		Employee emp[]= {e1,e2,e3};
+		
+		for(Employee e: emp)
+		{
+			System.out.println(e);
+		}
+		
+		
+	}
+
+}
